@@ -1,0 +1,29 @@
+﻿@model ToDoList.Models.ViewModels.ShowTask
+
+@{
+    ViewBag.Title = "Update";
+}
+
+<h2>Updating @Model.Task.Task</h2>
+
+<a href="/ToDoTask/Show/@Model.Task.TaskID" class="btn btn-default pull-right">Back</a>
+
+<form method="post" action="/ToDoTask/Update/@Model.Task.TaskID">
+    <div class="form-group">
+        <label for="Task">Task: </label>
+        <input type="text" id="Task" name="Task" value="@Model.Task.Task" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="DueDate">Due Date: </label>
+        <input type="datetime" id="DueDate" name="DueDate" value="@Model.Task.DueDate" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="Completed">Completed: </label>
+        <!-- this is another html helper method that will generate the html for a working checkbox for the Completed field in the task model
+         learn more here: https://www.tutorialsteacher.com/mvc/htmlhelper-checkbox-checkboxfor -->
+        @Html.CheckBox("Completed")
+    </div>
+
+    <input type="hidden" id="ListID" name="ListID" value="@Model.List.ListID" />
+    <input type="submit" value="Save" class="btn btn-success" />
+</form>

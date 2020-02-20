@@ -1,0 +1,14 @@
+﻿@model ToDoList.Models.ViewModels.ShowTask
+
+@{
+    ViewBag.Title = "DeleteConfirm";
+}
+
+<h2>Are you sure you want to delete @Model.Task.Task?</h2>
+
+<a href="/ToDoTask/Show/@Model.Task.TaskID" class="btn btn-default pull-right">Back</a>
+
+<form method="post" action="/ToDoTask/Delete/@Model.Task.TaskID">
+    <input type="hidden" name="ListID" value="@Model.Task.ListID" />
+    <input type="submit" value="Delete" class="btn btn-danger" />
+</form>

@@ -1,0 +1,49 @@
+﻿@model ToDoList.Models.ViewModels.ShowTasks
+
+@{
+    ViewBag.Title = "Show";
+}
+
+<!-- TODO:
+     - allow the user to click checkboxes from this page and have them save in the database
+-->
+<h2 class="heading">@Model.List.Title</h2>
+
+<a href="/List/Update/@Model.List.ListID">Change list name</a>
+
+<div class="">
+    <a href="/List/Index/" class="btn btn-default pull-right">Back</a>
+</div>
+
+
+<table class="table table-hover table-bordered">
+    <thead>
+        <tr>
+            <th class="col-sm-1 text-center" scope="col">Completed</th>
+            <th class="col-sm-7" scope="col">Tasks</th>
+        </tr>
+    </thead>
+    <tbody>
+            @{
+                foreach (var task in Model.ToDoTasks)
+                {
+                    <tr>
+                        <td class="text-center">
+                            <!-- this would have to be a CheckBoxFor and send data to the controller  -->
+
+                            <!-- this is an html helper method that generates the html for a static checkbox for the boolean Completed field in the ToDoTask model 
+                                 learn more here: https://www.completecsharptutorial.com/asp-net-mvc5/html-displayfor-example-tutorial-aspnet-mvc5.php -->
+                            @Html.DisplayFor(m => task.Completed)
+                        </td>
+                        <td>
+                            <a href="/ToDoTask/Show/@task.TaskID">@task.Task</a>
+                        </td>
+                    </tr>
+                }
+            }
+    </tbody>
+</table>
+
+<a href="/ToDoTask/Add/@Model.List.ListID" class="btn btn-success">Add new task</a>
+
+<a href="/List/Delete/@Model.List.ListID" onclick="if (!confirm('Are you sure you want to delete this?')) return false;" class="btn btn-danger pull-right">Delete list</a>

@@ -1,0 +1,28 @@
+﻿@model List<ToDoList.Models.List>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>ToDo Lists:</h2>
+
+<form method="get" action="/List/Index">
+    <div class="panel panel-body form-inline">
+        <input type="text" id="searchkey" name="searchkey" placeholder="Search..." class="form-control" />
+        <input type="submit" value="Search" class="btn btn-info" />
+    </div>
+</form>
+
+<div>
+    <ul class="list-group">
+        @{
+            foreach (var list in Model)
+            {
+                <li class="list-group-item"><a href="/List/Show/@list.ListID" class="">@list.Title</a></li>
+            }
+        }
+    </ul>
+</div>
+<div>
+    <a href="/List/Add" class="btn btn-success">Add</a>
+</div>

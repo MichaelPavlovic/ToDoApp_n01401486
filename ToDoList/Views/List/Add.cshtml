@@ -1,0 +1,19 @@
+﻿@model List<ToDoList.Models.List>
+
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2>Add a new ToDo List</h2>
+
+<div>
+    <a href="/List/Index" class="btn btn-default pull-right">Back</a>
+</div>
+<form method="post", action="/List/Add">
+    <div class="form-group">
+        <label for="Title">Title: </label>
+        <input type="text" id="Title" name="Title" placeholder="Enter a title..." class="form-control" />
+    </div>
+
+    <input type="submit" value="Add" class="btn btn-success" />
+</form>

@@ -1,0 +1,23 @@
+﻿@model ToDoList.Models.ViewModels.AddTask
+
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2>Add a new task</h2>
+
+<div>
+    <a href="/List/Show/@Model.List.ListID" class="btn btn-default pull-right">Back</a>
+</div>
+<form method="post" action="/ToDoTask/Add">
+    <div class="form-group">
+        <label for="Task">Task name: </label>
+        <input type="text" id="Task" name="Task" placeholder="Enter a task name..." class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="DueDate">Due Date: </label>
+        <input type="datetime" id="DueDate" name="DueDate" placeholder="Enter a due date..." class="form-control" />
+    </div>
+    <input type="hidden" id="ListID", name="ListID" value="@Model.List.ListID" />
+    <input type="submit" value="Add" class="btn btn-success" />
+</form>

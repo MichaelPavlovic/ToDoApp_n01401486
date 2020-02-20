@@ -1,0 +1,26 @@
+﻿@model ToDoList.Models.ToDoTask
+
+@{
+    ViewBag.Title = "Show";
+}
+
+<h2>@Model.Task</h2>
+<a href="/List/Show/@Model.ListID" class="btn btn-default pull-right">Back</a>
+<div class="panel-group">
+    <div>
+        <span>Task: @Model.Task</span>
+    </div>
+    <div>
+        <span>Due Date: @Model.DueDate</span>
+    </div>
+    <div>
+        <span>Completed: </span>
+        <!-- this is an html helper method that generates the html for a static checkbox for the boolean Completed field in the ToDoTask model
+             learn more here: https://www.completecsharptutorial.com/asp-net-mvc5/html-displayfor-example-tutorial-aspnet-mvc5.php -->
+        @Html.DisplayFor(m => Model.Completed)
+    </div>
+</div>
+<div>
+    <a href="/ToDoTask/Update/@Model.TaskID" class="btn btn-primary">Edit</a>
+    <a href="/ToDoTask/DeleteConfirm/@Model.TaskID" class="btn btn-danger">Delete</a>
+</div>

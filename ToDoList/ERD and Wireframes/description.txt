@@ -1,0 +1,8 @@
+Description for ERD:
+
+-A user should be able to create as many lists as they want (one user to many lists).
+
+-A list should only be associated with one user (many lists to one user). But if a user wants to invite another user to collaborate on a list, multiple users can be assocaited with multiple lists (one list to many users). So the usersxlists table exists to resolve this many to many relationship.
+
+-A List should have a collection of tasks associated with it (one list to many tasks).
+-A task should only belong a specific list (many tasks to one list).

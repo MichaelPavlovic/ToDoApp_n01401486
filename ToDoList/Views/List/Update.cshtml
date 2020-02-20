@@ -1,0 +1,18 @@
+﻿@model ToDoList.Models.List
+
+@{
+    ViewBag.Title = "Update";
+}
+
+<h2>Update ToDo List</h2>
+
+<a href="/List/Show/@Model.ListID" class="btn btn-default pull-right">Back</a>
+
+<form method="post" action="/List/Update/@Model.ListID">
+    <div class="form-group">
+        <label for="Title">Title: </label>
+        <input type="text" value="@Model.Title" id="Title" name="Title" class="form-control " />
+    </div>
+    <input type="submit" value="Save" class="btn btn-success" />
+</form>
+
